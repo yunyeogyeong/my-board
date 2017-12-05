@@ -1,0 +1,10 @@
+{% extends 'board/base_board.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div><a href="{% url 'post_edit' pk=post.pk %}">수정</a></div>
+{% endif %}
+<div>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.text|linebreaksbr}}</p>
+</div>
+{% endblock %}

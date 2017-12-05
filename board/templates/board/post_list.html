@@ -1,0 +1,19 @@
+{% extends 'board/base_board.html' %}
+{% block content %}
+<table>
+    <tr>
+        <td>순번</td>
+        <td>제목</td>
+        <td>작성자</td>
+        <td>작성일</td>
+    </tr>
+{% for post in posts %}
+    <tr>
+        <td>{{ post.id }}</td>
+        <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+        <td>{{ post.author }}</td>
+        <td>{{ post.created_date|date:"M/d"|lower }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
