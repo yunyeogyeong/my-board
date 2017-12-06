@@ -21,6 +21,6 @@ from mysite.views import HomeView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^account/', include('django.contrib.auth.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^blog/', include('board.urls')),
 ]
