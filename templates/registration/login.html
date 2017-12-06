@@ -1,0 +1,10 @@
+<form action="." method="post">
+    {%csrf_token%}
+    {%if form.error%}
+    입력내용 재확인!
+    {%endif%}
+    {{form.username.label_tag}}{{form.username}}
+    <br>{{form.password.label_tag}}{{form.password}}
+    <input type="submit" value="로그인">
+    <input type="hidden" name="next" value="{{next}}">
+</form>
