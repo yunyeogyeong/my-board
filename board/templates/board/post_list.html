@@ -1,6 +1,10 @@
 {% extends 'board/base_board.html' %}
-{% block content %}
-<table>
+{% block board_content %}
+<!-- table-bordered, table-hover, table-condensed -->
+<!-- tr태그에 active, success, info, warning, danger  -->
+<!-- <div class="table-responsive"> -->
+<div class="table-responsive">
+    <table class="table">
     <tr>
         <td>순번</td>
         <td>제목</td>
@@ -16,4 +20,5 @@
     </tr>
 {% endfor %}
 </table>
+</div>
 {% endblock %}

@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% extends "base.html" %}
+{% block title %}
+| 식품상점
+{% endblock title %}
+{% block content %}
     <title>myboard</title>
-    {% load staticfiles %}
-</head>
-<body>
-    <h1><a href="/">myboard</a></h1>
+    <h1><a href="{% url 'board:post_list' %}">myboard</a></h1>
     {% if user.is_authenticated %}
     <div><a href="{% url 'board:post_new' %}">쓰기</a></div>
     {% endif %}
-    {% block content %}
+    {% block board_content %}
     {% endblock %}
-</body>
-</html>
+{% endblock content %}

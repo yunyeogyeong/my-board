@@ -1,8 +1,19 @@
 {% extends 'board/base_board.html' %}
-{% block content %}
+{% block board_content %}
 <h2>New post</h2>
 <form method="POST" class="post-form">{% csrf_token %}
-{{ form.as_p }}
-<button type="submit">저장</button>
+        <div class="form-group">
+                <div class="form-group">{{ form.username.label_tag }}{{ form.title }}</div>
+                <div class="form-group">{{ form.username.label_tag }}{{ form.text }}</div>
+
+<button type="submit"  class="btn btn-default">저장</button>
+</div>
 </form>
+<script>
+        (function () {
+            document.querySelector("input[name='title']").classList.add('form-control');
+            // input type="text" name="title"
+            document.querySelector("textarea[name='text']").classList.add('form-control');
+        })();
+    </script>
 {% endblock %}
