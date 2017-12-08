@@ -1,0 +1,19 @@
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    float: left;
+    padding-right: 10px;
+}
+
+nav li:last-child {
+    padding-right: 0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>장고 게시판{% block title %}{% endblock title %}</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% load staticfiles %}
+  <!--link rel="stylesheet" href="{% static " css/base.css " %}"-->{% block sub_style %}{% endblock %}
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="{% url 'home' %}" class="navbar-brand">Dj Board 2017</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="{% url 'home' %}">홈</a>
+        </li>
+        <li>
+          <a href="{% url 'board:post_list' %}">게시판</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.is_active %}
+        <li>
+          <a>{% firstof user.get_short_name user.get_username %}님 입장</a>
+        </li>
+        <li>
+          <a href="{% url 'password_change' %}">비밀번호 변경</a>
+        </li>
+        {% if user.is_superuser %}
+        <li>
+          <a href="{% url 'admin:index' %}">관리자</a>
+        </li>
+        {% endif %}
+        <li>
+          <a href="{% url 'logout' %}">로그아웃</a>
+        </li>
+        {% else %}
+        <li>
+          <a>환영합니다.</a>
+        </li>
+        <li>
+          <a href="{% url 'login' %}">로그인</a>
+        </li>
+        <li>
+          <a href="{% url 'register' %}">회원가입</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+    <!-- {% block footer %}
+    {% endblock %} -->
+    <footer>&copy; 2017. (이름) All right reserved.</footer>
+  </div>
+</body>
+
+</html>

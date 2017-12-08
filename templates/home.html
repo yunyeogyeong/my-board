@@ -1,1 +1,16 @@
-처음이야.....
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block sub_style %}
+<!-- <link rel="stylesheet" href="{% static 'css/home_style.css' %}"> -->
+{% endblock %}
+{% block title %}
+ | 환영합니다.
+{% endblock title %}
+{% block content %}
+        <div class="jumbotron">
+        <h1>환영합니다.</h1>
+        <p>군영과 우리 인생을 이상의 보내는 얼마나 설레는 실현에 있다. 용기가 지혜는 못하다 있다.</p>
+        <p>사라지지 청춘이 못할 봄바람을 어디 위하여 때문이다. 얼마나 뜨고, 이것을 인도하겠다는 그들의 사랑의 이상의 때문이다. 불러 따뜻한 인간의 인도하겠다는 우리 있다.</p>
+      </div>
+      <p>가치를 열락의 지혜는 우는 청춘 사랑의 예가 주는 것이다. 불러 스며들어 그들에게 일월과 하여도 천지는 목숨을 실현에 부패뿐이다.</p>
+{% endblock content %}

@@ -10,7 +10,7 @@
 <body>
     <h1><a href="/">myboard</a></h1>
     {% if user.is_authenticated %}
-    <div><a href="{% url 'post_new' %}">쓰기</a></div>
+    <div><a href="{% url 'board:post_new' %}">쓰기</a></div>
     {% endif %}
     {% block content %}
     {% endblock %}

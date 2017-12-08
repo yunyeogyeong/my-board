@@ -10,7 +10,7 @@
 {% for post in posts %}
     <tr>
         <td>{{ post.id }}</td>
-        <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+        <td><a href="{% url 'board:post_detail' pk=post.pk %}">{{ post.title }}</a></td>
         <td>{{ post.author }}</td>
         <td>{{ post.created_date|date:"M/d"|lower }}</td>
     </tr>
