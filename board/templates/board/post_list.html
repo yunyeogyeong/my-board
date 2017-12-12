@@ -17,6 +17,7 @@
         <td><a href="{% url 'board:post_detail' pk=post.pk %}">{{ post.title }}</a></td>
         <td>{{ post.author }}</td>
         <td>{{ post.created_date|date:"M/d"|lower }}</td>
+        <td><a href="{% url 'board:post_remove' pk=post.pk %}">삭제</a></td>
     </tr>
 {% endfor %}
 </table>
