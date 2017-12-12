@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from django.db.models import ProtectedError
 
 
 # Create your views here.
 def post_list(request):
     posts = Post.objects.all()
-    return render(request, 'board/post_list.html', {'posts': posts })
+    return render(request, 'board/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -44,5 +45,4 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if post.author == request.user:
         post.delete()
-    return redirect('board:post_list')
-
+        return redirect('board:post_list')
