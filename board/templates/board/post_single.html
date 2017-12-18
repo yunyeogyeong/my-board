@@ -1,0 +1,27 @@
+{% extends 'board/base_board.html' %}
+{% block board_content %}
+{% if user.is_authenticated %}
+<div><a href="{% url 'board:post_edit' pk=post.pk %}">수정</a></div>
+{% endif %}
+<div class="panel panel-default">
+    <div class="panel-heading">{{ post.title }}</div>
+    <div class="panel-body">{{ post.text|linebreaksbr}}</div>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.id }}</td>
+            <td><a href="{% url 'board:post_detail' pk=post.pk %}">{{ post.title }}</a>
+                {% if post.author.id == user.id %}
+                <a href="{% url 'board:post_remove' pk=post.pk %}">[del]</a>
+                {% endif %}
+            </td>
+            <td>{{ post.author }}</td>
+            <td>{{ post.created_date|date:"M/d"|lower }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+

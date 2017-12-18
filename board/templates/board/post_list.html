@@ -3,7 +3,6 @@
 <!-- table-bordered, table-hover, table-condensed -->
 <!-- tr태그에 active, success, info, warning, danger  -->
 <!-- <div class="table-responsive"> -->
-{{ delfail }}
 <div class="table-responsive">
     <table class="table">
     <tr>
@@ -26,4 +25,10 @@
 {% endfor %}
 </table>
 </div>
+<form method="GET" class="post-form" action="{% url 'board:search' %}">
+    <div class="form-group">
+        <div class="form-group">{{form.search_word.label}}{{ form.search_word }}</div>
+        <button type="submit"  class="btn btn-default">검색</button>
+    </div>
+</form>
 {% endblock %}
